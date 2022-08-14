@@ -1,0 +1,19 @@
+- name: Install ZSH
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Install ZSH
+      package:
+        name: zsh
+        state: present
+        update_cache: true
+
+- name: Download dotfiles
+  hosts: localhost
+  tasks:
+    - name: Download dotfiles
+      git:
+        clone: true
+        bare: true
+        repo: git@github.com:RoryNesbitt/dotfiles
+        dest: $HOME/.config/dotfiles
