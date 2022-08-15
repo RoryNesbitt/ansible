@@ -23,7 +23,9 @@
   become: true
   tasks:
     - name: Set user shell to dash
-      command: chsh -s /bin/zsh rory
+      user:
+        name: rory
+        shell: /bin/zsh
 
 - name: Download dotfiles
   hosts: localhost
