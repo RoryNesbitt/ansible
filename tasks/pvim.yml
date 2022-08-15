@@ -1,24 +1,19 @@
 - name: Download pvim
   hosts: localhost
   tasks:
+
     - name: Cloning pvim
       git:
         clone: true
         repo: git@github.com:RoryNesbitt/pvim
         dest: $HOME/.local/bin/pvim.d
 
-- name: Download RNvim
-  hosts: localhost
-  tasks:
     - name: Cloning RNvim
       git:
         clone: true
         repo: git@github.com:RoryNesbitt/RNvim
         dest: $HOME/.local/bin/pvim.d/config
 
-- name: Linking executable
-  hosts: localhost
-  tasks:
     - name: Linking pvim
       file:
         state: link

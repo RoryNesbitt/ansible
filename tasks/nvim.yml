@@ -1,17 +1,15 @@
 - name: Setup Neovim
   hosts: localhost
-  become: true
   tasks:
+
     - name: Install Neovim
       package:
         name:
           - neovim
           - python-pynvim
         state: present
+      become: true
 
-- name: Download RNvim
-  hosts: localhost
-  tasks:
     - name: Cloning RNvim
       git:
         clone: true

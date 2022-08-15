@@ -1,35 +1,27 @@
 - name: Install shells
   hosts: localhost
-  become: true
   tasks:
+
     - name: Install shells
       package:
         name:
           - zsh
           - dash
         state: present
+      become: true
 
-- name: Use dash
-  hosts: localhost
-  become: true
-  tasks:
     - name: Set default shell to dash
       shell: |
         rm -f /bin/sh
         ln -s /bin/dash /bin/sh
+      become: true
 
-- name: Use zsh
-  hosts: localhost
-  become: true
-  tasks:
     - name: Set user shell to dash
       user:
         name: rory
         shell: /bin/zsh
+      become: true
 
-- name: Download dotfiles
-  hosts: localhost
-  tasks:
     - name: Download dotfiles
       git:
         clone: true
