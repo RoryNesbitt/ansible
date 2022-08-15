@@ -1,11 +1,29 @@
-- name: Install ZSH
+- name: Install shells
   hosts: localhost
   become: true
   tasks:
-    - name: Install ZSH
+    - name: Install shells
       package:
-        name: zsh
+        name:
+          - zsh
+          - dash
         state: present
+
+- name: Use dash
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Set default shell to dash
+      shell: |
+        rm -f /bin/sh
+        ln -s /bin/dash /bin/sh
+
+- name: Use zsh
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Set user shell to dash
+      command: chsh -s /bin/zsh rory
 
 - name: Download dotfiles
   hosts: localhost
