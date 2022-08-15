@@ -4,7 +4,9 @@
   tasks:
     - name: Install Neovim
       package:
-        name: neovim
+        name:
+          - neovim
+          - python-pynvim
         state: present
 
 - name: Download RNvim
