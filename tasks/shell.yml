@@ -6,7 +6,6 @@
       package:
         name: zsh
         state: present
-        update_cache: true
 
 - name: Download dotfiles
   hosts: localhost

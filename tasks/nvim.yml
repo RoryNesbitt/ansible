@@ -6,7 +6,6 @@
       package:
         name: neovim
         state: present
-        update_cache: true
 
 - name: Download RNvim
   hosts: localhost

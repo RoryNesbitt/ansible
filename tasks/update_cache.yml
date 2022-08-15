@@ -1,0 +1,7 @@
+- name: Update package cache
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Updating cache
+      package:
+        update_cache: true
