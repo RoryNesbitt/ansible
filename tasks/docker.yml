@@ -1,0 +1,23 @@
+- name: Install docker
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Installing docker
+      package:
+        name: docker
+        state: present
+
+- name: Setup docker
+  hosts: localhost
+  become: true
+  tasks:
+    - name: Create docker group
+      user:
+        name: rory
+        groups: docker
+        append: true
+    - name: Start docker service
+      service:
+        name: docker
+        state: started
+        enabled: true
