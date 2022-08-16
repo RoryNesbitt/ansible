@@ -1,5 +1,5 @@
 - name: Install shells
-  hosts: localhost
+  hosts: home
   tasks:
 
     - name: Install shells

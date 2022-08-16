@@ -1,5 +1,5 @@
 - name: Download pvim
-  hosts: localhost
+  hosts: pvim
   tasks:
 
     - name: Cloning pvim

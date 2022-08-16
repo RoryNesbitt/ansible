@@ -1,5 +1,5 @@
 - name: Setup docker
-  hosts: localhost
+  hosts: workstations
   become: true
   tasks:
 

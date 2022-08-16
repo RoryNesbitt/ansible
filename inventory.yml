@@ -1,0 +1,40 @@
+---
+
+pis:
+  hosts:
+    blueberry:
+      ansible_host: 192.168.1.2
+    blue:
+      ansible_host: blue.com
+      ansible_user: rory
+    black:
+      ansible_host: black.com
+    green:
+      ansible_host: green.com
+    purple:
+      ansible_host: purple.com
+    pink:
+      ansible_host: pink.com
+  vars:
+    ansible_user: pi
+
+home:
+  children:
+    pis:
+
+work:
+  hosts:
+    energy:
+      ansible_host: 10.192.31.6
+    chairs:
+      ansible_host: 10.192.31.8
+  vars:
+    ansible_user: labadmin
+
+nvim:
+  children:
+    pis:
+
+pvim:
+  children:
+    work:

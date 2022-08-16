@@ -1,5 +1,5 @@
 - name: Setup Neovim
-  hosts: localhost
+  hosts: nvim
   tasks:
 
     - name: Install Neovim
