@@ -19,6 +19,8 @@ pis:
     ansible_user: pi
 
 home:
+  hosts:
+    localhost
   children:
     pis:
 
