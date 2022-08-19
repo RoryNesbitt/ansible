@@ -28,3 +28,9 @@
         bare: true
         repo: git@github.com:RoryNesbitt/dotfiles
         dest: $HOME/.config/dotfiles
+        update: false
+
+    - name: Checkout dotfiles
+      shell: |
+        git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME checkout
+        git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME pull
