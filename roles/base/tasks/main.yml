@@ -1,0 +1,6 @@
+---
+
+- name: Updating cache
+  become: true
+  package:
+    update_cache: true

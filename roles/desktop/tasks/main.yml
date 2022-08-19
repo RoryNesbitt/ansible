@@ -1,0 +1,29 @@
+---
+
+- name: Installing desktop programs
+  become: true
+  package:
+    name:
+      - kitty
+      - firefox
+      - vivaldi
+      - steam
+      - tmux
+      - wine
+      - yarn
+      - python-pip
+      - xclip
+      - fzf
+      - ripgrep
+      - cmake
+      - ansible
+      - flameshot
+    state: present
+- name: Installing AUR packages
+  command: >
+    yay -Syu --noconfirm
+    realvnc-vnc-viewer
+    openconnect
+    teams
+    nerd-fonts-fira-code
+  when: ansible_distribution == "Archlinux"

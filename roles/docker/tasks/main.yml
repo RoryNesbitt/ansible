@@ -1,0 +1,21 @@
+---
+
+- name: Installing docker
+  become: true
+  package:
+    name: docker
+    state: present
+
+- name: Create docker group
+  become: true
+  user:
+    name: rory
+    groups: docker
+    append: true
+
+- name: Start docker service
+  become: true
+  service:
+    name: docker
+    state: started
+    enabled: true

@@ -1,0 +1,24 @@
+---
+
+- name: Cloning pvim
+  git:
+    clone: true
+    repo: git@github.com:RoryNesbitt/pvim
+    dest: $HOME/.local/bin/pvim.d
+
+- name: Cloning RNvim
+  git:
+    clone: true
+    repo: git@github.com:RoryNesbitt/RNvim
+    dest: $HOME/.local/bin/pvim.d/config
+
+- name: Linking pvim
+  file:
+    state: link
+    src: $HOME/.local/bin/pvim.d/pvim
+    path: $HOME/.local/bin/pvim
+- name: Linking pvim-update
+  file:
+    state: link
+    src: $HOME/.local/bin/pvim.d/pvim-update
+    path: $HOME/.local/bin/pvim-update

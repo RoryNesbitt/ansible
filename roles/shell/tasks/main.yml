@@ -1,0 +1,34 @@
+---
+
+- name: Install shells
+  become: true
+  package:
+    name:
+      - zsh
+      - dash
+    state: present
+
+- name: Set default shell to dash
+  become: true
+  shell: |
+    rm -f /bin/sh
+    ln -s /bin/dash /bin/sh
+
+- name: Set user shell to dash
+  become: true
+  user:
+    name: rory
+    shell: /bin/zsh
+
+- name: Download dotfiles
+  git:
+    clone: true
+    bare: true
+    repo: git@github.com:RoryNesbitt/dotfiles
+    dest: $HOME/.config/dotfiles
+    update: false
+
+- name: Checkout dotfiles
+  shell: |
+    git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME checkout
+    git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME pull
