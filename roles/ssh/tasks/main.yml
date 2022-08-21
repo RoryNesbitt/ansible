@@ -8,13 +8,13 @@
 - name: Add ssh key
   copy:
     src: "{{ ssh_key }}"
-    dest: $HOME/.ssh/
+    dest: $HOME/.ssh/id_ed25519
     mode: 0600
 
 - name: Add public key
   copy:
     src: "{{ ssh_key }}.pub"
-    dest: $HOME/.ssh/
+    dest: $HOME/.ssh/id_ed25519.pub
     mode: 0644
 
 - name: Use new ssh key

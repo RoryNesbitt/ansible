@@ -3,13 +3,16 @@
 - hosts: all
   pre_tasks: []
   roles:
-    - base
+    # - base
+    - ssh
+    - shell
 
 - hosts: home
   gather_facts: false
-  vars:
-    ssh_key: "id_ed25519"
-
   roles:
-    - ssh
-    - shell
+    - zsh
+
+- hosts: all
+  gather_facts: false
+  roles:
+    - dotfiles
