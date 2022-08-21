@@ -9,7 +9,7 @@
 - name: Create docker group
   become: true
   user:
-    name: rory
+    name: "{{ ansible_user_id }}"
     groups: docker
     append: true
 

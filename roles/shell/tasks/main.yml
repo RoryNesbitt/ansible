@@ -18,7 +18,7 @@
 - name: Set user shell to zsh
   become: true
   user:
-    name: rory
+    name: "{{ ansible_user_id }}"
     shell: /bin/zsh
 
 - name: Download dotfiles
