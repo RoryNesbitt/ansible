@@ -16,3 +16,13 @@
   gather_facts: false
   roles:
     - dotfiles
+
+- hosts: nvim
+  gather_facts: false
+  roles:
+    - nvim
+
+- hosts: pvim
+  gather_facts: false
+  roles:
+    - pvim
