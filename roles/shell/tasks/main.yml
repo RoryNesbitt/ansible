@@ -14,7 +14,7 @@
     rm -f /bin/sh
     ln -s /bin/dash /bin/sh
 
-- name: Set user shell to dash
+- name: Set user shell to zsh
   become: true
   user:
     name: rory
