@@ -1,8 +1,0 @@
----
-
-- hosts: localhost
-  vars:
-    ssh_key: "id_ed25519"
-
-  tasks:
-    - include_tasks: tasks/ssh.yml
