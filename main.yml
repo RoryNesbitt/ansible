@@ -1,12 +1,14 @@
 ---
 
 - hosts: all
-  
-  vars:
-    example_of_a_var: /some/file/path
-
   pre_tasks: []
-
   roles:
     - base
 
+- hosts: home
+  gather_facts: false
+  vars:
+    ssh_key: "id_ed25519"
+
+  roles:
+    - ssh

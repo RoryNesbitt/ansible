@@ -7,20 +7,18 @@
 
 - name: Add ssh key
   copy:
-    src: "./ssh_keys/{{ ssh_key }}"
+    src: "ssh_keys/{{ ssh_key }}"
     dest: $HOME/.ssh/
     mode: 0600
 
 - name: Add public key
   copy:
-    src: "./ssh_keys/{{ ssh_key }}.pub"
+    src: "ssh_keys/{{ ssh_key }}.pub"
     dest: $HOME/.ssh/
     mode: 0644
 
 - name: Use new ssh key
   authorized_key:
-    user: "{{ lookup('env', 'USER') }}"
+    user: "{{ ansible_user_id }}"
     state: present
-    key: "{{ lookup('file', '{{ item }}') }}"
-  with_fileglob:
-    - "{{ lookup('env', 'HOME') }}/.ssh/*.pub"
+    key: "{{ lookup('file', 'ssh_keys/{{ ssh_key }}.pub') }}"
