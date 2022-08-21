@@ -33,7 +33,7 @@ work:
 
 nvim:
   children:
-    pis:
+    home:
 
 pvim:
   children:
