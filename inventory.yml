@@ -3,20 +3,17 @@
 pis:
   hosts:
     blueberry:
-      ansible_host: 192.168.1.2
+      ansible_host: blueberry
     blue:
-      ansible_host: 10.10.10.20
-      ansible_user: rory
+      ansible_host: blue
     green:
-      ansible_host: 10.10.10.21
+      ansible_host: green
     black:
-      ansible_host: 10.10.10.22
+      ansible_host: black
     purple:
-      ansible_host: 10.10.10.23
+      ansible_host: purple
     pink:
-      ansible_host: 10.10.10.24
-  vars:
-    ansible_user: pi
+      ansible_host: pink
 
 home:
   hosts:
@@ -27,11 +24,9 @@ home:
 work:
   hosts:
     energy:
-      ansible_host: 10.192.31.6
+      ansible_host: energy-automation
     chairs:
-      ansible_host: 10.192.31.8
-  vars:
-    ansible_user: labadmin
+      ansible_host: chairs-automation
 
 nvim:
   children:
