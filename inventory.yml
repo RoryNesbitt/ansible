@@ -12,6 +12,9 @@ pis:
       ansible_host: black
     purple:
       ansible_host: purple
+
+specialty:
+  hosts:
     pink:
       ansible_host: pink
 
