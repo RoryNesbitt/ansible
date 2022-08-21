@@ -10,9 +10,10 @@
 
 - name: Set default shell to dash
   become: true
-  shell: |
-    rm -f /bin/sh
-    ln -s /bin/dash /bin/sh
+  file:
+    path: /bin/sh
+    src: /bin/dash
+    state: link
 
 - name: Set user shell to zsh
   become: true
