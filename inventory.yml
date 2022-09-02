@@ -30,6 +30,8 @@ work:
       ansible_host: energy-automation
     chairs:
       ansible_host: chairs-automation
+    rfiot:
+      ansible_host: rfiot-automation
 
 nvim:
   children:
