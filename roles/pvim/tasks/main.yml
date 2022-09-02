@@ -5,6 +5,7 @@
     clone: true
     repo: git@github.com:RoryNesbitt/pvim
     dest: $HOME/.local/bin/pvim.d
+    force: true
 
 - name: Cloning RNvim
   git:
