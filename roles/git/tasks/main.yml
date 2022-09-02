@@ -1,0 +1,8 @@
+
+---
+
+- name: Check git is installed
+  become: true
+  package:
+    name: git
+    state: present

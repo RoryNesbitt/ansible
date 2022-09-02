@@ -15,6 +15,7 @@
 - hosts: all
   gather_facts: false
   roles:
+    - git
     - dotfiles
 
 - hosts: nvim
