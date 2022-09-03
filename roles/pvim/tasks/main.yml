@@ -1,5 +1,17 @@
 ---
 
+- name: Checking for dependencies
+  package:
+    name:
+      - fuse
+      - build-essential
+    state: present
+  tags:
+    - neovim
+    - pvim
+  when:
+    - ansible_distribution|string == 'Ubuntu'
+
 - name: Cloning pvim
   git:
     clone: true
