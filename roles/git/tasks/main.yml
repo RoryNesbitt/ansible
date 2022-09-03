@@ -6,3 +6,9 @@
   package:
     name: git
     state: present
+  tags:
+    - git
+    - dotfiles
+    - neovim
+    - nvim
+    - pvim

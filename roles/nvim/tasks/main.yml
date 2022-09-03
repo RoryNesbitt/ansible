@@ -8,6 +8,9 @@
       - python-pynvim
     state: present
   when: "'arm' not in ansible_architecture"
+  tags:
+    - neovim
+    - nvim
 
 - name: Install snapd
   become: true
@@ -15,6 +18,9 @@
     name: snapd
     state: present
   when: "'arm' in ansible_architecture"
+  tags:
+    - neovim
+    - nvim
 
 - name: Install Neovim
   become: true
@@ -23,9 +29,16 @@
     state: present
     classic: true
   when: "'arm' in ansible_architecture"
+  tags:
+    - neovim
+    - nvim
 
 - name: Cloning RNvim
   git:
     clone: true
     repo: git@github.com:RoryNesbitt/RNvim
     dest: $HOME/.config/nvim
+  tags:
+    - neovim
+    - nvim
+    - rnvim

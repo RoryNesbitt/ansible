@@ -7,9 +7,13 @@
     repo: git@github.com:RoryNesbitt/dotfiles
     dest: $HOME/.config/dotfiles
     update: false
+  tags:
+    - dotfiles
 
 - name: Checkout dotfiles
   shell: |
     git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME checkout
     git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME pull
     git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
+  tags:
+    - dotfiles

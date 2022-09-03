@@ -7,6 +7,10 @@
       - zsh
       - dash
     state: present
+  tags:
+    - shell
+    - zsh
+    - dash
 
 - name: Set default shell to dash
   become: true
@@ -14,3 +18,6 @@
     path: /bin/sh
     src: /bin/dash
     state: link
+  tags:
+    - shell
+    - dash
