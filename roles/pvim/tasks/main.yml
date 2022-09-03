@@ -1,6 +1,7 @@
 ---
 
 - name: Checking for dependencies
+  become: true
   package:
     name:
       - fuse
