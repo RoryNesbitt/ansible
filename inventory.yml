@@ -1,17 +1,21 @@
 ---
 
 pis:
-  hosts:
-    blueberry:
-      ansible_host: blueberry
-    blue:
-      ansible_host: blue
-    green:
-      ansible_host: green
-    black:
-      ansible_host: black
-    purple:
-      ansible_host: purple
+  children:
+    pi4:
+      hosts:
+        blue:
+          ansible_host: blue
+        purple:
+          ansible_host: purple
+    pi0:
+      hosts:
+        blueberry:
+          ansible_host: blueberry
+        green:
+          ansible_host: green
+        black:
+          ansible_host: black
 
 specialty:
   hosts:
