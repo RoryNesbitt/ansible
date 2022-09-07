@@ -7,7 +7,7 @@
       - neovim
       - python-pynvim
     state: present
-  when: "'arm' not in ansible_architecture"
+  when: "'arm' not in ansible_architecture and 'aarch64' not in ansible_architecture"
   tags:
     - neovim
     - nvim
@@ -17,7 +17,7 @@
   package:
     name: snapd
     state: present
-  when: "'arm' in ansible_architecture"
+  when: "'arm' in ansible_architecture or 'aarch64' in ansible_architecture"
   tags:
     - neovim
     - nvim
@@ -28,7 +28,7 @@
     name: nvim
     state: present
     classic: true
-  when: "'arm' in ansible_architecture"
+  when: "'arm' in ansible_architecture or 'aarch64' in ansible_architecture"
   tags:
     - neovim
     - nvim
