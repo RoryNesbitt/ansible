@@ -21,6 +21,10 @@ specialty:
   hosts:
     pink:
       ansible_host: pink
+    jackdaw:
+      ansible_host: jackdaw
+    freeipa:
+      ansible_host: fipa
 
 home:
   hosts:
