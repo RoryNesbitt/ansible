@@ -28,7 +28,8 @@ specialty:
 
 home:
   hosts:
-    localhost
+    localhost:
+      ansible_connection: local
   children:
     pis:
 
