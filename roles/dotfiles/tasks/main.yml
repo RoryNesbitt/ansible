@@ -3,7 +3,6 @@
 - name: Download dotfiles
   git:
     clone: true
-    bare: true
     repo: git@github.com:RoryNesbitt/dotfiles
     dest: $HOME/.config/dotfiles
     update: false
@@ -11,9 +10,6 @@
     - dotfiles
 
 - name: Checkout dotfiles
-  shell: |
-    git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME checkout
-    git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME pull
-    git --git-dir=$HOME/.config/dotfiles --work-tree=$HOME config --local status.showUntrackedFiles no
+  shell: $HOME/.config/dotfiles/dots link $HOME/.config/dotfiles
   tags:
     - dotfiles
