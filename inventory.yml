@@ -5,13 +5,13 @@ pis:
     pi4:
       hosts:
         blue:
-          ansible_host: blue
+          ansible_host: remote
         purple:
           ansible_host: purple
     pi0:
       hosts:
-        blueberry:
-          ansible_host: blueberry
+        yellow:
+          ansible_host: yellow
         green:
           ansible_host: green
         black:
@@ -32,6 +32,7 @@ home:
       ansible_connection: local
   children:
     pis:
+    specialty:
 
 work:
   hosts:
@@ -49,3 +50,4 @@ nvim:
 pvim:
   children:
     work:
+    specialty:
