@@ -4,26 +4,13 @@
   become: true
   package:
     name:
-      - kitty
-      - firefox
-      - vivaldi
-      - steam
-      - tmux
-      - wine
-      - yarn
-      - python-pip
-      - xclip
-      - fzf
-      - ripgrep
-      - cmake
-      - ansible
-      - flameshot
+      - ghostty
+      - thunar
+      - waterfox
+      - hyprlauncher
+      - hyprshot
+      - waybar
+      - rofi
     state: present
-- name: Installing AUR packages
-  command: >
-    yay -Syu --noconfirm
-    realvnc-vnc-viewer
-    openconnect
-    teams
-    nerd-fonts-fira-code
-  when: ansible_facts['distribution'] == "Archlinux"
+  tags:
+    - desktop
