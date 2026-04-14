@@ -22,3 +22,12 @@
     mode: 0644
   tags:
     - ssh
+
+- name: Replace authorised keys with new key
+  ansible.builtin.authorized_key:
+    user: "{{ ansible_facts['user_id'] }}"
+    key: "{{ lookup('file', ssh_key + '.pub') }}"
+    exclusive: true
+  tags:
+    - never
+    - ssh_replace
