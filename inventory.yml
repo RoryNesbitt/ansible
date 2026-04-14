@@ -26,6 +26,10 @@ specialty:
     freeipa:
       ansible_host: fipa
 
+unraid:
+  hosts:
+    jackdaw:
+
 home:
   hosts:
     localhost:

@@ -1,7 +1,13 @@
 ---
 
 - hosts: all
+  gather_facts: true
   pre_tasks:
+    - name: Use un_get on Unraid
+      tags: always
+      ansible.builtin.set_fact:
+        ansible_package_use: un_get
+      when: "'unraid' in group_names"
     - import_tasks: tasks/upgrade.yml
 
   roles:
