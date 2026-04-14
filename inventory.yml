@@ -5,7 +5,7 @@ pis:
     pi4:
       hosts:
         blue:
-          ansible_host: remote
+          ansible_host: blue
         purple:
           ansible_host: purple
     pi0:
@@ -36,18 +36,15 @@ home:
 
 work:
   hosts:
-    energy:
-      ansible_host: energy-automation
-    chairs:
-      ansible_host: chairs-automation
     rfiot:
       ansible_host: rfiot-automation
 
 nvim:
-  children:
-    home:
+  hosts:
+    localhost:
 
 pvim:
   children:
     work:
     specialty:
+    pis:
