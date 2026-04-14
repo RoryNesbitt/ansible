@@ -8,8 +8,10 @@
     update: true
   tags:
     - dotfiles
+  when: "'unraid' not in group_names"
 
 - name: Checkout dotfiles
   shell: "{{ ansible_facts.env.HOME }}/.config/dotfiles/dots link {{ ansible_facts.env.HOME }}/.config/dotfiles"
   tags:
     - dotfiles
+  when: "'unraid' not in group_names"
