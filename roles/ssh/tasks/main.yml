@@ -23,13 +23,21 @@
   tags:
     - ssh
 
-- name: Add GitHub to known_hosts
-  ansible.builtin.known_hosts:
-    name: github.com
-    key: "{{ lookup('pipe', 'ssh-keyscan github.com') }}"
+- name: Scan GitHub SSH host keys
+  ansible.builtin.command: ssh-keyscan github.com
+  register: ssh_scan
+  changed_when: false
   tags:
     - ssh
 
+- name: Add GitHub to known_hosts
+  ansible.builtin.known_hosts:
+    name: github.com
+    key: "{{ item }}"
+    state: present
+  loop: "{{ ssh_scan.stdout_lines | reject('match', '^#') | list }}"
+  tags:
+    - ssh
 - name: Replace authorised keys with new key
   ansible.builtin.authorized_key:
     user: "{{ ansible_facts['user_id'] }}"
