@@ -1,22 +1,19 @@
 ---
 
 - hosts: all
-  pre_tasks: []
+  pre_tasks:
+    - import_tasks: tasks/upgrade.yml
+
   roles:
-    # - base
     - ssh
     - shell
+    - git
+    - dotfiles
 
 - hosts: home
   gather_facts: false
   roles:
     - zsh
-
-- hosts: all
-  gather_facts: false
-  roles:
-    - git
-    - dotfiles
 
 - hosts: nvim
   gather_facts: false

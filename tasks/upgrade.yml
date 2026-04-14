@@ -1,8 +1,32 @@
-- name: Update package cache
-  hosts: all
-  become: true
-  tasks:
-    - name: Upgrading programs
-      package:
+---
+
+    - name: Upgrade packages (Arch/CachyOS)
+      become: true
+      community.general.pacman:
         update_cache: true
         upgrade: true
+      when: ansible_facts['os_family'] == 'Archlinux'
+      tags:
+        - never
+        - upgrade
+
+    - name: Upgrade packages (Debian/Raspberry Pi OS)
+      become: true
+      ansible.builtin.apt:
+        update_cache: true
+        upgrade: dist
+      when: ansible_facts['os_family'] == 'Debian'
+      tags:
+        - never
+        - upgrade
+
+    - name: Upgrade packages (Fedora)
+      become: true
+      ansible.builtin.dnf:
+        name: "*"
+        state: latest
+        update_cache: true
+      when: ansible_facts['os_family'] == 'RedHat'
+      tags:
+        - never
+        - upgrade
