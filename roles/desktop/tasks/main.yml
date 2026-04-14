@@ -11,6 +11,7 @@
       - hyprshot
       - waybar
       - rofi
+      - ttf-cascadia-code-nerd
     state: present
   tags:
     - desktop
