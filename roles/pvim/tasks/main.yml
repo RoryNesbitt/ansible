@@ -4,21 +4,22 @@
   become: true
   package:
     name:
-      - fuse
+      - fuse3
       - build-essential
     state: present
   tags:
     - neovim
     - pvim
   when:
-    - ansible_facts['distribution|string'] == 'Ubuntu'
+    - ansible_facts.os_family == 'Debian'
 
 - name: Cloning pvim
   git:
     clone: true
     repo: git@github.com:RoryNesbitt/pvim
-    dest: $HOME/.local/pvim
+    dest: "{{ ansible_facts.env.HOME }}/.local/pvim"
     force: true
+    update: true
   tags:
     - neovim
     - pvim
@@ -27,7 +28,8 @@
   git:
     clone: true
     repo: git@github.com:RoryNesbitt/RNvim
-    dest: $HOME/.local/pvim/config
+    dest: "{{ ansible_facts.env.HOME }}/.local/pvim/config"
+    update: true
   tags:
     - neovim
     - pvim

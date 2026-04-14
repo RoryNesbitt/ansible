@@ -4,12 +4,12 @@
   git:
     clone: true
     repo: git@github.com:RoryNesbitt/dotfiles
-    dest: $HOME/.config/dotfiles
-    update: false
+    dest: "{{ ansible_facts.env.HOME }}/.config/dotfiles"
+    update: true
   tags:
     - dotfiles
 
 - name: Checkout dotfiles
-  shell: $HOME/.config/dotfiles/dots link $HOME/.config/dotfiles
+  shell: "{{ ansible_facts.env.HOME }}/.config/dotfiles/dots link {{ ansible_facts.env.HOME }}/.config/dotfiles"
   tags:
     - dotfiles

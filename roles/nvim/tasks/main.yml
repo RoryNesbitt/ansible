@@ -5,30 +5,7 @@
   package:
     name:
       - neovim
-      - python-pynvim
     state: present
-  when: "'arm' not in ansible_facts['architecture'] and 'aarch64' not in ansible_facts['architecture']"
-  tags:
-    - neovim
-    - nvim
-
-- name: Install snapd
-  become: true
-  package:
-    name: snapd
-    state: present
-  when: "'arm' in ansible_facts['architecture'] or 'aarch64' in ansible_facts['architecture']"
-  tags:
-    - neovim
-    - nvim
-
-- name: Install Neovim
-  become: true
-  snap:
-    name: nvim
-    state: present
-    classic: true
-  when: "'arm' in ansible_facts['architecture'] or 'aarch64' in ansible_facts['architecture']"
   tags:
     - neovim
     - nvim
@@ -37,7 +14,8 @@
   git:
     clone: true
     repo: git@github.com:RoryNesbitt/RNvim
-    dest: $HOME/.config/nvim
+    dest: "{{ ansible_facts.env.HOME }}/.config/nvim"
+    update: true
   tags:
     - neovim
     - nvim
